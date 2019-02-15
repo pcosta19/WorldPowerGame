@@ -1,5 +1,5 @@
-
 public class Country{
+	private String Name;
 	private double GDP;
 	private int NumberOfNukes;
 	private double CINCScore;
@@ -8,8 +8,9 @@ public class Country{
 	private String Owner;
 	
 	//gdp in billions of usd
-	public Country(double gdp, int nukes, double cinc, double hdi, int natrec, String owner)
+	public Country(String name, double gdp, int nukes, double cinc, double hdi, int natrec, String owner)
 	{
+		Name = name;
 		GDP = gdp;
 		NumberOfNukes = nukes;
 		CINCScore = cinc;
@@ -21,6 +22,10 @@ public class Country{
 	public double getGDP()
 	{
 		return GDP;
+	}
+
+	public String getOwner(){
+		return Owner;
 	}
 	
 	public String toString()

@@ -17,43 +17,46 @@ public class WorldPower {
 		Countries = countries;
 	}
 	
-	//calculate GDP elsewhere, just type it in for the parameter
-	//in trillions
+	
 	public void setGDP()
 	{
 		GDP = 0;
-		for (Countries x: Countries)
-			GDP += 
+		for (Country x: Countries)
+			GDP += x.getGDP();
 	}
 	
 	//number of natural resources of which the player has the majority of production
-	public void setNatRec(int i)
+	public void setNatRec()
 	{
-		NumberOfTopNaturalResources = i;
+		NumberOfTopNaturalResources = 0;
+		for (Country x: Countries)
+			NumberOfTopNaturalResources += x.getNatRec();
 	}
 	
 	//just the number of nukes
-	public void setNuclearCapability(int i)
+	public void setNuclearCapability()
 	{
-		NuclearCapability = i;
+		NuclearCapability = 0;
+		for (Country x: Countries)
+			NuclearCapability += x.getNukes();
 	}
 	
-	//the calculated power of ally excluding this variable
-	public void setPowerOfAllies(double i)
+	
+	//sum of all CINC scores
+	public void setCINC()
 	{
-		PowerOfAllies = i;
+		CINCScore = 0;
+		for (Country x: Countries)
+			CINCScore += x.getCINC();
 	}
 	
-	//average CINC score of all territory * 100
-	public void setCINC(double i)
+	//average HDI of all countries
+	public void setHDI()
 	{
-		CINCScore = i;
-	}
-	
-	//average HDI of all countries/states * 10
-	public void setHDI(double i)
-	{
-		HDIScore = i;
+		HDIScore = 0;
+		for (Country x: Countries)
+			HDIScore += x.getHDI();
+		HDIScore /= Countries.size();
 	}
 	
 	//number of powerful shipping routes
@@ -65,15 +68,17 @@ public class WorldPower {
 	}
 	
 	//use this to view the list of countries a person has control over
+	//I highly doubt this works as intended, will probably just print mem loc of each country
 	public void listCountries()
 	{
-		for (String x: Countries)
+		for (Country x: Countries)
 			System.out.println(x);
 	}
 	
 	public double totalPower()
 	{
-		return GDP/2; 
+		return 100*GDP/78280 + CINCScore*HDIScore*100 + NuclearCapability/5820 
+				+ (NumberOfTopNaturalResources + PowerOfShippingRoutes)/100; 
 	}
 	
 	public String toString()
@@ -83,10 +88,5 @@ public class WorldPower {
 				+ "\nNumber of Controlled Natural Resources: " + NumberOfTopNaturalResources +
 				"\nHDI Score: " + HDIScore;
 	}
-	
-	
-	
-	
-	
 	
 }

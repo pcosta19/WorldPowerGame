@@ -1,9 +1,11 @@
-
+import java.util.*;
 public class CountryList {
+	public static ArrayList<Country> countryList;
 	public static void main(String[] args)
 	{
+		countryList = new ArrayList<Country>();
 		//double gdp, int nukes, double cinc, double hdi, int natrec, String owner
-		Country Afghanistan = new Country(20.82, 0, 0.001433, 0.498, 0, "Austin");
+		countryList.add(new Country("Afghanistan", 20.82, 0, 0.001433, 0.498, 0, "Austin"));
 		Country Albania = new Country(13.04, 0, 0.000276, 0.785, 0, "Austin");
 		Country Algeria = new Country(170.4, 0, 0.005290, 0.754, 0, "Sam");
 		Country Andorra = new Country(3.013, 0, 0.000003, 0.858, 0, "None");
@@ -200,57 +202,58 @@ public class CountryList {
 		Country Zambia = new Country(25.81, 0, 0.000749, 0.588, 0, "Sam");
 		Country Zimbabwe = new Country(17.85, 0, 0.001032, 0.535, 0, "Ryan");
 		
+		System.out.println(Zimbabwe);
 		//all states from the U.S.
-		Country Alabama = new Country();
-		Country Alaska = new Country();
-		Country Arizona = new Country();
-		Country Arkansas = new Country();
-		Country California = new Country();
-		Country Colorado = new Country();
-		Country Connecticut = new Country();
-		Country Delaware = new Country();
-		Country Florida = new Country();
-		Country Georgia = new Country();
-		Country Hawaii = new Country();
-		Country Idaho = new Country();
-		Country Illinois = new Country();
-		Country Indiana = new Country();
-		Country Iowa = new Country();
-		Country Kansas = new Country();
-		Country Kentucky = new Country();
-		Country Louisiana = new Country();
-		Country Maine = new Country();
-		Country Maryland = new Country();
-		Country Massachusetts = new Country();
-		Country Michigan = new Country();
-		Country Minnesota = new Country();
-		Country Mississippi = new Country();
-		Country Missouri = new Country();
-		Country Montana = new Country();
-		Country Nebraska = new Country();
-		Country Nevada = new Country();
-		Country NewHampshire = new Country();
-		Country NewJersey = new Country();
-		Country NewMexico = new Country();
-		Country NewYork = new Country();
-		Country NorthCarolina = new Country();
-		Country NorthDakota = new Country();
-		Country Ohio = new Country();
-		Country Oklahoma = new Country();
-		Country Oregon = new Country();
-		Country Pennsylvania = new Country();
-		Country RhodeIsland = new Country();
-		Country SouthCarolina = new Country();
-		Country SouthDakota = new Country();
-		Country Tennessee = new Country();
-		Country Texas = new Country();
-		Country Utah = new Country();
-		Country Vermont = new Country();
-		Country Virginia = new Country();
-		Country Washington = new Country();
-		Country WestVirginia = new Country();
-		Country Wisconsin = new Country();
-		Country Wyoming = new Country();
+//		Country Alabama = new Country();
+//		Country Alaska = new Country();
+//		Country Arizona = new Country();
+//		Country Arkansas = new Country();
+//		Country California = new Country();
+//		Country Colorado = new Country();
+//		Country Connecticut = new Country();
+//		Country Delaware = new Country();
+//		Country Florida = new Country();
+//		Country Georgia = new Country();
+//		Country Hawaii = new Country();
+//		Country Idaho = new Country();
+//		Country Illinois = new Country();
+//		Country Indiana = new Country();
+//		Country Iowa = new Country();
+//		Country Kansas = new Country();
+//		Country Kentucky = new Country();
+//		Country Louisiana = new Country();
+//		Country Maine = new Country();
+//		Country Maryland = new Country();
+//		Country Massachusetts = new Country();
+//		Country Michigan = new Country();
+//		Country Minnesota = new Country();
+//		Country Mississippi = new Country();
+//		Country Missouri = new Country();
+//		Country Montana = new Country();
+//		Country Nebraska = new Country();
+//		Country Nevada = new Country();
+//		Country NewHampshire = new Country();
+//		Country NewJersey = new Country();
+//		Country NewMexico = new Country();
+//		Country NewYork = new Country();
+//		Country NorthCarolina = new Country();
+//		Country NorthDakota = new Country();
+//		Country Ohio = new Country();
+//		Country Oklahoma = new Country();
+//		Country Oregon = new Country();
+//		Country Pennsylvania = new Country();
+//		Country RhodeIsland = new Country();
+//		Country SouthCarolina = new Country();
+//		Country SouthDakota = new Country();
+//		Country Tennessee = new Country();
+//		Country Texas = new Country();
+//		Country Utah = new Country();
+//		Country Vermont = new Country();
+//		Country Virginia = new Country();
+//		Country Washington = new Country();
+//		Country WestVirginia = new Country();
+//		Country Wisconsin = new Country();
+//		Country Wyoming = new Country();
 		
 	}
 }

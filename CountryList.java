@@ -183,24 +183,24 @@ public class CountryList {
 		countryList.add(Thailand = new Country(455.2, 0, 0.007973, 0.755, 1, "Sam"));
 		countryList.add(Togo = new Country(4.813, 0, 0.000297, 0.503, 0, "Sam"));
 		countryList.add(Tonga = new Country(0.4261, 0, 0.000003, 0.726, 0, "None"));
-		countryList.add(TrinidadAndTobago = new Country(22.1, 0, 0.000354, 0.784, 0, "Sam"));
-		countryList.add(Tunisia = new Country(40.26, 0, 0.000822, 0.735, 0, "Ryan"));
-		countryList.add(Turkey = new Country(851.1, 0, 0.014317, 0.791, 1, "Turkey"));
-		countryList.add(Turkmenistan = new Country(42.36, 0, 0.000711, 0.706, 0, "Austin"));
-		countryList.add(Tuvalu = new Country(0.03973, 0, 0.000000, 0.250, 0, "Sam"));
-		countryList.add(Uganda = new Country(25.89, 0, 0.001320, 0.516, 0, "Sam"));
-		countryList.add(Ukraine = new Country(112.2, 0, 0.011835, 0.751, 0, "Ryan"));
-		countryList.add(UnitedArabEmirates = new Country(382.6, 0, 0.002980, 0.863, 0, "Sam"));
-		countryList.add(UnitedStates = new Country(19390, 6550, 0.142149, 0.924, 2, "Mult. Owners"));
-		countryList.add(Uruguay = new Country(56.16, 0, 0.000474, 0.804, 0, "Sam"));
-		countryList.add(Uzbekistan = new Country(48.72, 0, 0.002256, 0.710, 0, "Austin"));
-		countryList.add(Vanuatu = new Country(862.9, 0, 0.000006, 0.603, 0, "Sam"));
-		countryList.add(VaticanCity = new Country(0.21198, 0, 0.000004, 0.750, 0, "None"));
-		countryList.add(Venezuela = new Country(482.4, 0, 0.004559, 0.761, 0, "Sam"));
-		countryList.add(Vietnam = new Country(223.9, 0, 0.007113, 0.694, 0, "Ryan"));
-		countryList.add(Yemen = new Country(18.21, 0, 0.001518, 0.452, 0, "Austin"));
-		countryList.add(Zambia = new Country(25.81, 0, 0.000749, 0.588, 0, "Sam"));
-		countryList.add(Zimbabwe = new Country(17.85, 0, 0.001032, 0.535, 0, "Ryan"));
+		countryList.add(new Country("Trinidad and Tobago", 22.1, 0, 0.000354, 0.784, 0, "Sam"));
+		countryList.add(new Country("Tunisia", 40.26, 0, 0.000822, 0.735, 0, "Ryan"));
+		countryList.add(new Country("Turkey", 851.1, 0, 0.014317, 0.791, 1, "Turkey"));
+		countryList.add(new Country("Turkmenistan", 42.36, 0, 0.000711, 0.706, 0, "Austin"));
+		countryList.add(new Country("Tuvalu", 0.03973, 0, 0.000000, 0.250, 0, "Sam"));
+		countryList.add(new Country("Uganda", 25.89, 0, 0.001320, 0.516, 0, "Sam"));
+		countryList.add(new Country("Ukraine", 112.2, 0, 0.011835, 0.751, 0, "Ryan"));
+		countryList.add(new Country("United Arab Emirates", 382.6, 0, 0.002980, 0.863, 0, "Sam"));
+		countryList.add(new Country("United States", 19390, 6550, 0.142149, 0.924, 2, "Mult. Owners"));
+		countryList.add(new Country("Uruguay", 56.16, 0, 0.000474, 0.804, 0, "Sam"));
+		countryList.add(new Country("Uzbekistan", 48.72, 0, 0.002256, 0.710, 0, "Austin"));
+		countryList.add(new Country("Vanuatu", 862.9, 0, 0.000006, 0.603, 0, "Sam"));
+		countryList.add(new Country("Vatican City", 0.21198, 0, 0.000004, 0.750, 0, "None"));
+		countryList.add(new Country("Venezuela", 482.4, 0, 0.004559, 0.761, 0, "Sam"));
+		countryList.add(new Country("Vietnam", 223.9, 0, 0.007113, 0.694, 0, "Ryan"));
+		countryList.add(new Country("Yemen", 18.21, 0, 0.001518, 0.452, 0, "Austin"));
+		countryList.add(new Country("Zambia", 25.81, 0, 0.000749, 0.588, 0, "Sam"));
+		countryList.add(new Country("Zimbabwe", 17.85, 0, 0.001032, 0.535, 0, "Ryan"));
 		
 
 		//all states from the U.S.

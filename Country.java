@@ -3,44 +3,27 @@ public class Country{
 	private int NumberOfNukes;
 	private double CINCScore;
 	private double HDIScore;
-	private int NumberOfTopNaturalResources;
+	
 	private String Owner;
-	private String CountryName;
+	private String nameCountry;
+	public double LandArea;
 	
 	//gdp in billions of usd
-	public Country(String name, double gdp, int nukes, double cinc, double hdi, int natrec, String owner)
+	public Country(String n, double gdp, int nukes, double cinc, double hdi)
 	{
+		nameCountry = n;
 		GDP = gdp;
 		NumberOfNukes = nukes;
 		CINCScore = cinc;
 		HDIScore = hdi;
-		NumberOfTopNaturalResources = natrec;
-		Owner = owner;
-		CountryName = name;
+		Owner = "None";
 	}
 	
-	public String getCountry()
-	{
-		return CountryName;
-	}
+	//need these getters so we can calculate total GDP, average HDI, and total CINC of a user
+	//these are very good values to have accessible because it allows users to get an idea of each user's power
 	public double getGDP()
 	{
 		return GDP;
-	}
-	
-	public int getNatRec()
-	{
-		return NumberOfTopNaturalResources;
-	}
-	
-	public int getNukes()
-	{
-		return NumberOfNukes;
-	}
-	
-	public double getCINC()
-	{
-		return CINCScore;
 	}
 	
 	public double getHDI()
@@ -48,16 +31,29 @@ public class Country{
 		return HDIScore;
 	}
 	
-	public String getOwner()
+	public double getCINC()
 	{
-		return Owner;
+		return CINCScore;
 	}
 	
+	
+	//need this so a user can add countries
+	public String getName()
+	{
+		return nameCountry;
+	}
+	
+	//when a country is claimed, need to set owner name to the user who claimed the country
+	public void newOwner(String n)
+	{
+		Owner = n;
+	}
+	
+	//summary of info associated with country
 	public String toString()
 	{
 		return "Owner: " + Owner + "\nGDP: " + GDP + "\nNukes: " + NumberOfNukes + "\nCINC: " + CINCScore
-				+ "\nHDI: " + HDIScore + "\nNumber of Natural Resources: "
-				+ NumberOfTopNaturalResources;
+				+ "\nHDI: " + HDIScore;
 	}
 	
 	

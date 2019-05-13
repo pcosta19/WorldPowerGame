@@ -217,6 +217,7 @@ public class CountryList {
 //		Country Colorado = new State();
 //		Country Connecticut = new State();
 //		Country Delaware = new State();
+//		Country DistrictOfColumbia = new State();
 //		Country Florida = new State();
 //		Country GeorgiaState = new State();
 //		Country Hawaii = new State();
@@ -256,7 +257,6 @@ public class CountryList {
 //		Country Vermont = new State();
 //		Country Virginia = new State();
 //		Country Washington = new State();
-//		County WashingtonDC = new State();
 //		Country WestVirginia = new State();
 //		Country Wisconsin = new State();
 //		Country Wyoming = new State();

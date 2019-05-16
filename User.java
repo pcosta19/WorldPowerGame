@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.*;
 
 public class User {
 	private String name;
@@ -11,10 +11,45 @@ public class User {
 		countries = new ArrayList<Country>();
 	}
 	
+	Scanner keyboard = new Scanner(System.in);
+	public void UserTurn()
+	{
+		System.out.println(name + ", enter the country/state you wish to claim: ");
+		String claim = keyboard.nextLine();
+		Country found = searchCountry(claim, 0, CountryList.allCountries.size());
+		
+		//check if what they have claimed is a State, if it is, subtract the area of that state
+		//from the total area able to be claimed per turn
+		//MUST IMPLEMENT LINE(S) TO GIVE OPTION TO USER TO END THEIR TURN
+		if (found instanceof State)
+		{
+			double availableArea = 350000;
+			while (availableArea > 0)
+			{
+				if (((State) found).getArea() < availableArea) 
+				{
+					availableArea -= ((State) found).getArea();
+					countries.add(found);
+				}
+				else
+					System.out.println("Sorry, this state's land area goes over your maximum turn claim size.");
+				System.out.println("You have " + availableArea + "square miles left to claim, "
+						+ "which state would you like to claim?");
+				claim = keyboard.nextLine();
+				found = searchCountry(claim, 0, CountryList.allCountries.size());
+			}
+			
+		}
+		
+		
+	}
+	
 	//binary search
 	//search for country method, call this in the add country method
 	public Country searchCountry(String c, int low, int high)
 	{
+		//will return null if the name typed is not associated with any Country/State
+		
 		int middle = (low + high)/2;
 		if (c.equals(CountryList.allCountries.get(middle).getName()))
 			return CountryList.allCountries.get(middle);
@@ -22,46 +57,28 @@ public class User {
 		{
 			return (searchCountry(c, low, middle - 1));
 		}
-		else
+		else if (c.compareTo(CountryList.allCountries.get(middle).getName()) > 0)
 			return (searchCountry(c, middle+1, high));
+		else
+			return null;
 	}
 	
-	//use binary search to find the country we are looking for*******
+	
+	//add the country the user types in to their list
 	public void addCountry(String c)
 	{
-		Country adding = searchCountry(c, 0, CountryList.allCountries.size());
-		countries.add(adding);
+		//if the user has misspelled their country, searchCountry returns null
+		//prompt user to type their claim again until their country is found
+		while (searchCountry(c, 0, CountryList.allCountries.size()) == null)
+		{
+			System.out.println("Sorry, check your spelling and type your claim again: ");
+			c = keyboard.nextLine();
+		}
+		countries.add(searchCountry(c, 0, CountryList.allCountries.size()));
+		
 	}
 	
-	//do we need this method of can searchCountry() return a State with reference type Country???
-	//search for state method, call this in the add country method
-//	public Country searchState(String c, int low, int high)
-//	{
-//		int middle = (low + high)/2;
-//		if (c.equals(CountryList.allCountries.get(middle).getName()))
-//			return CountryList.allCountries.get(middle);
-//		else if (c.compareTo(CountryList.allCountries.get(middle).getName()) < 0)
-//		{
-//			return (searchCountry(c, low, middle - 1));
-//		}
-//		else
-//			return (searchCountry(c, middle+1, high));
-//	}
-	
-	
-	
-	//do we need this???
-	//use binary search to find the state we are looking for********
-//	public void addState(String s)
-//	{
-//		for (int i = 0; i < CountryList.allCountries.size(); i++)
-//		{
-//			if (CountryList.allCountries.get(i).getName().equals(s))
-//				countries.add(CountryList.allCountries.get(i));
-//		}
-//	}
-	
-	
+	//list all the countries a user has
 	public String listCountries()
 	{
 		String list = "";
@@ -72,9 +89,9 @@ public class User {
 		return list;
 	}
 	
-	
+	//returns the name of the user and the list of their countries
 	public String toString()
 	{
-		return name + listCountries();
+		return name + ": " + listCountries();
 	}
 }

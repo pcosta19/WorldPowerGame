@@ -56,14 +56,19 @@ public class Country{
 				+ "\nHDI: " + HDIScore;
 	}
 
-	public void setGDP(int i) {
+	public void setGDP(double i) {
 		GDP = i;
 		
 	}
 
 
-	public void setHDI(int i) {
-		HDIScore = i;
+	public void setHDI(double h) {
+		HDIScore = h;
+		
+	}
+
+	public void setCINC(double c) {
+		CINCScore = c;
 		
 	}
 	

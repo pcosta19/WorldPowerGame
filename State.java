@@ -12,5 +12,9 @@ public class State extends Country{
 		return LandArea;
 	}
 	
+	public void setArea(int a)
+	{
+		LandArea = a;
+	}
 
 }

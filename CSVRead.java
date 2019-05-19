@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSVRead {
-	private ArrayList<String[]> GDPs = new ArrayList<String[]>();
-	private ArrayList<String[]> HDIs = new ArrayList<String[]>();
-	private ArrayList<String[]> Areas = new ArrayList<String[]>();
-	private ArrayList<String[]> Nukes = new ArrayList<String[]>();
+	private static ArrayList<String[]> GDPs = new ArrayList<String[]>();
+	private static ArrayList<String[]> HDIs = new ArrayList<String[]>();
+	private static ArrayList<String[]> Areas = new ArrayList<String[]>();
+	private static ArrayList<String[]> Nukes = new ArrayList<String[]>();
 	
 	//Nukes.add(String[] ["wyoming", "170"]);
 	
-	public void update() {
+	public static void update() {
 		/*
 		GDPs = new ArrayList<String[]>();
 		HDIs = new ArrayList<String[]>();
@@ -74,15 +74,17 @@ public class CSVRead {
 		}
 		
 	}
-	private 
-	public void set() {
+ 
+	public static void set() {
 		int i = 0;
 		int j = 0;
 		for (Country c: CountryList.allCountries) {
-			if (c.getGDP() == 0) {
-				c.setGDP(Integer.valueOf(GDPs.get(i)[1]));
-				c.setArea(Integer.valueOf(Areas.get(i)[1]));
-				c.setHDI(Integer.valueOf(HDIs.get(i)[1]));
+			if (c instanceof State) {
+				c.setGDP(Double.parseDouble(GDPs.get(i)[1])/1000000000);
+				((State) c).setArea(Integer.valueOf(Areas.get(i)[1]));
+				c.setHDI(Double.parseDouble(HDIs.get(i)[1])/10);
+				c.setCINC(0.142149/50);
+				i++;
 			}
 			/*
 			if (c.getName().equals(Nukes.get(j)[0])) {

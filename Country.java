@@ -1,3 +1,4 @@
+
 public class Country{
 	private double GDP;
 	private int NumberOfNukes;
@@ -6,8 +7,7 @@ public class Country{
 	
 	private String Owner;
 	private String nameCountry;
-	public double LandArea;
-	
+	public int landArea;
 	//gdp in billions of usd
 	public Country(String n, double gdp, int nukes, double cinc, double hdi)
 	{
@@ -54,6 +54,17 @@ public class Country{
 	{
 		return "Owner: " + Owner + "\nGDP: " + GDP + "\nNukes: " + NumberOfNukes + "\nCINC: " + CINCScore
 				+ "\nHDI: " + HDIScore;
+	}
+
+	public void setGDP(int i) {
+		GDP = i;
+		
+	}
+
+
+	public void setHDI(int i) {
+		HDIScore = i;
+		
 	}
 	
 	

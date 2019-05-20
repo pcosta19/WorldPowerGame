@@ -4,23 +4,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSVRead {
-	private static ArrayList<String[]> GDPs;
-	private static ArrayList<String[]> HDIs;
-	private static ArrayList<String[]> Areas;
-	private static ArrayList<String[]> Nukes;
+	private static ArrayList<String[]> GDPs = new ArrayList<String[]>();
+	private static ArrayList<String[]> HDIs = new ArrayList<String[]>();
+	private static ArrayList<String[]> Areas = new ArrayList<String[]>();
+	private static ArrayList<String[]> Nukes = new ArrayList<String[]>();
 	
-	String[] ga = {"georgia", "1364"};
-	String[] la = {"louisiana", "170"};
-	String[] nm = {"newmexico", "1914"};
-	String[] nv = {"nevada", "902"};
-	String[] mo = {"missouri", "136"};
-	String[] mt = {"montana", "535"};
-	String[] nd = {"northdakota", "194"};
-	String[] tx = {"texas", "100"};
-	String[] wa = {"washington", "2364"};
-	String[] wy = {"wyoming", "170"};
+	static String[] ga = {"georgia", "1364"};
+	static String[] la = {"louisiana", "170"};
+	static String[] nm = {"newmexico", "1914"};
+	static String[] nv = {"nevada", "902"};
+	static String[] mo = {"missouri", "136"};
+	static String[] mt = {"montana", "535"};
+	static String[] nd = {"northdakota", "194"};
+	static String[] tx = {"texas", "100"};
+	static String[] wa = {"washington", "2364"};
+	static String[] wy = {"wyoming", "170"};
 	
-	public void update() {
+public static void update() {
 		
 		GDPs = new ArrayList<String[]>();
 		HDIs = new ArrayList<String[]>();
@@ -93,26 +93,27 @@ public class CSVRead {
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
+
 	public static void set() {
 		int i = 0;
 		int j = 0;
 		for (Country c: CountryList.allCountries) {
-			if (c.getGDP() == 0) {
-				c.setGDP(Integer.valueOf(GDPs.get(i)[1]));
-				c.setArea(Integer.valueOf(Areas.get(i)[1]));
+			if (c instanceof State) {
+				c.setGDP(Double.parseDouble(GDPs.get(i)[1]));
+				((State) c).setArea(Integer.valueOf(Areas.get(i)[1]));
 				c.setHDI(Double.parseDouble(HDIs.get(i)[1])/10);
-				c.setCINC(CountryList.allCountries.get(186).getCINC / 50);
+				c.setCINC(0.142149/50);
 				i++;
 			}
 			
 			if (c.getName().equals(Nukes.get(j)[0])) {
 				c.setNukes(Integer.valueOf(Nukes.get(j)[1]));
+				j++;
 			}
-			
 		}
 	}
 
 }
+
+//cinc = allCountries.get(186).getCINC / 50;

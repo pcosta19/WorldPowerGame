@@ -36,6 +36,11 @@ public class Country{
 		return CINCScore;
 	}
 	
+	public void setNukes(int n)
+	{
+		NumberOfNukes = n;
+	}
+	
 	
 	//need this so a user can add countries
 	public String getName()
@@ -58,18 +63,19 @@ public class Country{
 
 	public void setGDP(double i) {
 		GDP = i;
-		
 	}
 
 
 	public void setHDI(double h) {
 		HDIScore = h;
-		
 	}
 
 	public void setCINC(double c) {
 		CINCScore = c;
-		
+	}
+
+	public int getNukes() {
+		return NumberOfNukes;
 	}
 	
 	

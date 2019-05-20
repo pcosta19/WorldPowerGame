@@ -63,7 +63,7 @@ public class User {
 			while (availableArea > 0)
 			{
 				
-				System.out.println("You have " + availableArea + "square miles left to claim, "
+				System.out.println("You have " + availableArea + " square miles left to claim, "
 						+ "which state would you like to claim? If you would like to finish claiming this turn, type 'end'");
 				if (keyboard.nextLine().equals("end"))
 					break;
@@ -121,8 +121,11 @@ public class User {
 	public Country searchCountry(String c, int low, int high)
 	{
 		//will return null if the name typed is not associated with any Country/State
+		if(low > CountryList.allCountries.size() - 1 || low== high && !c.equals(CountryList.allCountries.get(low).getName()))
+			return null;
 		
 		int middle = (low + high)/2;
+		
 		if (c.equals(CountryList.allCountries.get(middle).getName()))
 			return CountryList.allCountries.get(middle);
 		else if (c.compareTo(CountryList.allCountries.get(middle).getName()) < 0)
@@ -131,8 +134,9 @@ public class User {
 		}
 		else if (c.compareTo(CountryList.allCountries.get(middle).getName()) > 0)
 			return (searchCountry(c, middle+1, high));
-		else
-			return null;
+		
+		return null;
+		
 	}
 	
 	

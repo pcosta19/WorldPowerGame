@@ -65,19 +65,20 @@ public class User {
 				
 				System.out.println("You have " + availableArea + " square miles left to claim, "
 						+ "which state would you like to claim? If you would like to finish claiming this turn, type 'end'");
-				if (keyboard.nextLine().equals("end"))
+				String nxtAns = keyboard.nextLine();
+				if (nxtAns.equals("end"))
 					break;
 				
 				//newAddition is given a new value
 				else{
-					addCountry(keyboard.nextLine());
+					addCountry(nxtAns);
 					newAddition = countries.get(countries.size()-1);
 					
 				}
 				
 				//makes the user type the name of a state if they typed in the name of a country
 				//newAddition is assigned a new value accordingly
-				while (newAddition instanceof Country)
+				while (!(newAddition instanceof State))
 				{
 					countries.remove(newAddition);
 					System.out.println("Sorry, you must enter a state. Try again: ");
@@ -117,24 +118,19 @@ public class User {
 	}
 	
 	//binary search
+	//jk lol, binary search is too hard, i'm gonna do sequential instead
 	//search for country method, call this in the add country method
-	public Country searchCountry(String c, int low, int high)
+	public Country searchCountry(String c)
 	{
-		//will return null if the name typed is not associated with any Country/State
-		if(low > CountryList.allCountries.size() - 1 || low== high && !c.equals(CountryList.allCountries.get(low).getName()))
-			return null;
-		
-		int middle = (low + high)/2;
-		
-		if (c.equals(CountryList.allCountries.get(middle).getName()))
-			return CountryList.allCountries.get(middle);
-		else if (c.compareTo(CountryList.allCountries.get(middle).getName()) < 0)
+		for (int i = 0; i < CountryList.allCountries.size(); i++)
 		{
-			return (searchCountry(c, low, middle - 1));
+			if (CountryList.allCountries.get(i).getName().equals(c))
+			{
+				return CountryList.allCountries.get(i);
+			}
 		}
-		else if (c.compareTo(CountryList.allCountries.get(middle).getName()) > 0)
-			return (searchCountry(c, middle+1, high));
 		
+		//returns null if what they typed is not a country in the list
 		return null;
 		
 	}
@@ -145,18 +141,18 @@ public class User {
 	{
 		//if the user has misspelled their country, searchCountry returns null
 		//prompt user to type their claim again until their country is found
-		while (searchCountry(c, 0, CountryList.allCountries.size()) == null)
+		while (searchCountry(c) == null)
 		{
 			System.out.println("Sorry, check your spelling and type your claim again: ");
 			c = keyboard.nextLine();
 		}
-		countries.add(searchCountry(c, 0, CountryList.allCountries.size()));
+		countries.add(searchCountry(c));
 		
 	}
 	
 	public void removeCountry(String c) 
 	{
-		countries.remove(searchCountry(c, 0, CountryList.allCountries.size()));
+		countries.remove(searchCountry(c));
 	}
 	
 	//trades countries

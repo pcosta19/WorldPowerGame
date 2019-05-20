@@ -28,7 +28,7 @@ public class User {
 		return null;
 	}
 
-	private String getName() {
+	String getName() {
 		
 		return name;
 	}
@@ -45,6 +45,7 @@ public class User {
 		//which allows us to access it and its values in subsequent lines
 		addCountry(keyboard.nextLine());
 		Country newAddition = countries.get(countries.size()-1);
+		CountryList.allCountries.remove(newAddition);
 		
 		//check if what they have claimed is a State, if it is, subtract the area of that state
 		//from the total area able to be claimed per turn
@@ -71,6 +72,7 @@ public class User {
 				else{
 					addCountry(keyboard.nextLine());
 					newAddition = countries.get(countries.size()-1);
+					
 				}
 				
 				//makes the user type the name of a state if they typed in the name of a country
@@ -91,20 +93,27 @@ public class User {
 				}
 				
 				else
+				{
 					availableArea -= ((State) newAddition).getArea();
+					CountryList.allCountries.remove(newAddition);
+				}
 			}
 		}
 		
-		//gives the user the option to trade countries with other players
-		//it is assumed that the players have reached a verbal agreement on the trade
-		//the other user will not have to confirm the trade, we are basing this off of honesty
-		System.out.println("If you would like to trade countries with another user, type 'trade', "
-				+ "otherwise, please type 'end' to complete your turn: ");
-		while (!keyboard.nextLine().equals("end"))
-		{
-			System.out.println("If you would like to trade countries with another user, type 'trade', "
-					+ "otherwise, please type 'end' to complete your turn: ");
-		}
+//		//gives the user the option to trade countries with other players
+//		//it is assumed that the players have reached a verbal agreement on the trade
+//		//the other user will not have to confirm the trade, we are basing this off of honesty
+//		System.out.println("If you would like to trade countries with another user, type 'trade', "
+//				+ "otherwise, please type 'end' to complete your turn: ");
+//		while (!keyboard.nextLine().equals("end"))
+//		{
+//			System.out.println("With whom are you trading?");
+//			String recipient = keyboard.nextLine();
+//			System.out.println("Which of your own countries are you trading away?");
+//			//jk lol i give up idk how to write this and its 1 am
+//			System.out.println("If you would like to trade countries with another user, type 'trade', "
+//					+ "otherwise, please type 'end' to complete your turn: ");
+//		}
 	}
 	
 	//binary search
@@ -145,6 +154,20 @@ public class User {
 	{
 		countries.remove(searchCountry(c, 0, CountryList.allCountries.size()));
 	}
+	
+	//trades countries
+	
+//	public void tradeCforC(String uone, String utwo, String cone, String ctwo) 
+//	{
+//		User one = getUser(uone);
+//		User two = getUser(utwo);
+//		one.removeCountry(cone);
+//		two.removeCountry(ctwo);
+//		one.addCountry(ctwo);
+//		two.addCountry(cone);
+//	}
+		
+
 	
 	public double getPower() 
 	{		

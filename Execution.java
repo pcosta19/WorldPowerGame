@@ -3,6 +3,8 @@ import java.util.*;
 public class Execution {
 	public static void main(String[] args)
 	{
+		
+		CountryList c1 = new CountryList();
 		//this sets the data for the states before the game begins
 		CSVRead.update();
 		CSVRead.set();
